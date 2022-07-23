@@ -1,14 +1,3 @@
----
-title: jhoom.nvim
-author: manyids2
-date: 2022-07-23
-styles:
-  style: monokai
-  table:
-    column_spacing: 3
-    header_divider: '-'
----
-
 ## Motivation
 
 Batteries for nvim.
