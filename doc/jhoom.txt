@@ -1,0 +1,42 @@
+================================================================================
+INTRODUCTION                                                    *jhoom.nvim*
+
+jhoom.nvim is a plugin for choosing from various plugin configs, to test drive
+what is possible.
+
+Getting started with jhoom:
+  1. In your own config, install the plugins supported.
+  2. Evalulate it working with `:JhoomLualine` or `:lua
+     require("jhoom").pick("lualine")`
+
+A practical introduction into jhoom customization can be found in README.md and
+`:h jhoom.pick` that has information about supported plugins.
+To find out more:
+https://github.com/manyids2/jhoom.nvim
+
+  :h jhoom.setup
+  :h jhoom.pick
+
+jhoom.setup({opts})                                            *jhoom.setup()*
+    Setup function to be run by user.
+
+    Usage:
+    >
+    require('jhoom').setup{}
+<
+
+jhoom.pick("...")                                              *jhoom.pick()*
+    Pick a plugin to load config for.
+
+    Usage:
+    >
+    require('jhoom').pick(name)
+    -- name is a string with the name of the plugin
+<
+
+================================================================================
+SUPPORTED                                                   *jhoom.supported*
+
+Supported plugins with configs that can be used with |jhoom.pick()|:
+1. themes
+2. lualine
