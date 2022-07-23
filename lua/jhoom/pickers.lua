@@ -6,6 +6,19 @@ local conf = require("telescope.config").values
 
 local M = {}
 
+M.plugins = function()
+	local configs = {}
+	local cur_path = Path.parent(Path.new(debug.getinfo(1, "S").source:sub(2)))
+	local cfg_path = Path.new(cur_path.filename .. "/configs/")
+	local cfg_files = scan.scan_dir(cfg_path.filename, {depth = 1, add_dirs = true})
+	for _, file in ipairs(cfg_files) do
+		local parts = SPLIT(file, "/")
+		local filename = parts[#parts]
+		table.insert(configs, filename)
+	end
+	return configs
+end
+
 M.available = function(name)
 	-- Check if the plugin can be required
 	-- need to do it yourself as it doesnt work for themes

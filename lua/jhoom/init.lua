@@ -20,8 +20,21 @@ M.pick = function(name)
 		actions.select_default:replace(function()
 			actions.close(prompt_bufnr)
 			local selection = action_state.get_selected_entry()
-			RELOAD(name)
+			-- RELOAD(name)
 			require("jhoom.configs." .. name .. "." .. selection[1])
+		end)
+		return true
+	end
+	pickers.pick("config", results, { attach_mappings = attach_mappings })
+end
+
+M.sel = function()
+	local results = pickers.plugins()
+	local attach_mappings = function(prompt_bufnr, _)
+		actions.select_default:replace(function()
+			actions.close(prompt_bufnr)
+			local selection = action_state.get_selected_entry()
+			M.pick(selection[1])
 		end)
 		return true
 	end
